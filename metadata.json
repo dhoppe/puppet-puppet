@@ -1,0 +1,24 @@
+{
+  "name": "dhoppe-puppet",
+  "author": "Dennis Hoppe",
+  "description": "Puppet Module for Debian, Ubuntu",
+  "license": "GPLv2",
+  "project_page": "http://github.com/dhoppe/puppet-puppet",
+  "source": "git://github.com/dhoppe/puppet-puppet",
+  "summary": "Puppet Module",
+  "version": "0.0.1",
+  "checksums": {
+    "Modulefile": "65a52372dcac039f1a2a855afd80b930",
+    "README": "2b6c37aa97fdfc488abd6d0f444d4c90",
+    "files/common/etc/default/puppet": "f44465a767c8947234db9711a6fafa46",
+    "files/common/etc/puppet/puppet-agent.conf": "6623b8d0654b0fba8c229d542fbe9321",
+    "files/common/etc/puppet/puppet-master.conf": "cf6514e986cea684235f45f735a01f1f",
+    "manifests/init.pp": "ff3a888ffe8c7e1400220e9291250a58",
+    "manifests/master.pp": "89c04ae73cc4b836d4700193ac63e1ec",
+    "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
+    "spec/spec_helper.rb": "ca19ec4f451ebc7fdb035b52eae6e909",
+    "templates/common/etc/puppet/namespaceauth.conf.erb": "a72be2b94c916e9e9d18ce6ba1de7a6a",
+    "tests/init.pp": "d2609a7f67522ad7f71f07be8070ecaa"
+  },
+  "dependencies": []
+}

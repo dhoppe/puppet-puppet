@@ -1,0 +1,19 @@
+#
+# THIS FILE IS MANAGED BY PUPPET
+# <%= file %>
+#
+
+[fileserver]
+    allow *.<%= domain %>
+
+[puppetmaster]
+    allow *.<%= domain %>
+
+[puppetrunner]
+    allow puppet.<%= domain %>
+
+[puppetbucket]
+    allow *.<%= domain %>
+
+[puppetreports]
+    allow *.<%= domain %>

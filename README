@@ -1,0 +1,18 @@
+# Class: puppet
+#   This module manages puppet
+#
+# Definiton:
+#   puppet::config
+#
+# Parameters:
+#   $config - specify config file
+#
+# Actions:
+#   Installs the puppet, namespaceauth.conf, puppet.conf
+#
+# Requires:
+#
+# Sample Usage:
+#   puppet::config { "/etc/puppet/puppet.conf":
+#      config => "agent",
+#   }
