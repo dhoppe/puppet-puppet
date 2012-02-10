@@ -5,6 +5,13 @@ class puppet::master inherits puppet {
 		require +> Package["puppetmaster"],
 	}
 
+	package { [
+		"hiera",
+		"hiera-puppet" ]:
+		ensure   => present,
+		provider => gem,
+	}
+
 	package { "puppetmaster":
 		ensure => present,
 	}
