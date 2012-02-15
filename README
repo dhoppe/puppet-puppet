@@ -6,13 +6,16 @@
 #
 # Parameters:
 #   $config - specify config file
+#   $host   - specify host (Hiera)
 #
 # Actions:
 #   Installs the puppet, namespaceauth.conf, puppet.conf
 #
 # Requires:
+#   -
 #
 # Sample Usage:
 #   puppet::config { "/etc/puppet/puppet.conf":
 #      config => "agent",
+#      host   => hiera('host'),
 #   }

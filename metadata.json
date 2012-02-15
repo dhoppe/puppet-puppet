@@ -9,10 +9,9 @@
   "version": "0.0.3",
   "checksums": {
     "Modulefile": "95734ba66280742065597590e9289543",
-    "README": "2b6c37aa97fdfc488abd6d0f444d4c90",
+    "README": "45e1bb553d6809f604f957e24e1b14c2",
+    "examples/puppet.yaml": "3377ac1507ad7ac5fe240fc29a80a556",
     "files/common/etc/default/puppet": "f44465a767c8947234db9711a6fafa46",
-    "files/common/etc/puppet/puppet-agent.conf": "6623b8d0654b0fba8c229d542fbe9321",
-    "files/common/etc/puppet/puppet-master.conf": "cf6514e986cea684235f45f735a01f1f",
     "lib/hiera.rb": "e84a5a2db45140af852ed6cbd3c6ca6f",
     "lib/hiera/backend.rb": "444961d1adb743c0cfda2854629fc201",
     "lib/hiera/backend/puppet_backend.rb": "49cd49fa840a71d5752cd2d2ecb03d9c",
@@ -25,11 +24,13 @@
     "lib/puppet/parser/functions/hiera_array.rb": "b87b306119b6055d8f08e1f12f9a5730",
     "lib/puppet/parser/functions/hiera_hash.rb": "5e93ef44d4b35d6de0427ad618aa215c",
     "lib/puppet/parser/functions/hiera_include.rb": "7cb1543df40a7e844935410bf43e6379",
-    "manifests/init.pp": "ff3a888ffe8c7e1400220e9291250a58",
+    "manifests/init.pp": "d2caa522b8a62593ccf45d97032a9bc8",
     "manifests/master.pp": "cb406a1c48579fa1ee0b7b9345b23bd9",
     "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
     "spec/spec_helper.rb": "ca19ec4f451ebc7fdb035b52eae6e909",
-    "templates/common/etc/puppet/namespaceauth.conf.erb": "a72be2b94c916e9e9d18ce6ba1de7a6a",
+    "templates/common/etc/puppet/namespaceauth.conf.erb": "75b68b9ad785922fa3c6702f7141465b",
+    "templates/common/etc/puppet/puppet-agent.conf.erb": "434f4e0d193e343d8e7e1e7da2e292c5",
+    "templates/common/etc/puppet/puppet-master.conf.erb": "b5de7290ac483856a7b1d70e1f8b59f0",
     "tests/init.pp": "d2609a7f67522ad7f71f07be8070ecaa"
   },
   "dependencies": []

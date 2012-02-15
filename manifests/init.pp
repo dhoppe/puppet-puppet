@@ -1,11 +1,11 @@
 class puppet {
-	define puppet::config ($config = false) {
+	define puppet::config ($config = false, $host = false) {
 		file { "$name":
 			owner   => root,
 			group   => root,
 			mode    => 0644,
 			alias   => "puppet.conf",
-			source  => "puppet:///modules/puppet/common/etc/puppet/puppet-${config}.conf",
+			content => template("puppet/common/etc/puppet/puppet-${config}.conf.erb"),
 			notify  => Service["puppet"],
 			require => Package["puppet"],			
 		}
@@ -33,6 +33,7 @@ class puppet {
 
 	puppet::config { "/etc/puppet/puppet.conf":
 		config => "agent",
+		host   => hiera('host'),
 	}
 
 	package { "puppet":

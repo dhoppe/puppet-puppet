@@ -10,7 +10,9 @@
     allow *.<%= domain %>
 
 [puppetrunner]
-    allow puppet.<%= domain %>
+<% Puppet::Parser::Functions.function('hiera') -%>
+<% puppet = scope.function_hiera('host') -%>
+    allow <%= puppet %>
 
 [puppetbucket]
     allow *.<%= domain %>
