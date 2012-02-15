@@ -6,9 +6,9 @@
   "project_page": "http://github.com/dhoppe/puppet-puppet",
   "source": "git://github.com/dhoppe/puppet-puppet",
   "summary": "Puppet Module",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "checksums": {
-    "Modulefile": "95734ba66280742065597590e9289543",
+    "Modulefile": "7148bff849ecf7a06696037546b5dec9",
     "README": "45e1bb553d6809f604f957e24e1b14c2",
     "examples/puppet.yaml": "3377ac1507ad7ac5fe240fc29a80a556",
     "files/common/etc/default/puppet": "f44465a767c8947234db9711a6fafa46",
