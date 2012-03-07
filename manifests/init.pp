@@ -1,5 +1,5 @@
 class puppet {
-	define puppet::config ($config = false, $host = false) {
+	define puppet::config($config = false, $host = false) {
 		file { "$name":
 			owner   => root,
 			group   => root,
