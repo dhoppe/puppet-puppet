@@ -36,7 +36,9 @@ class puppet {
 		host   => hiera('host'),
 	}
 
-	package { "puppet":
+	package { [
+		"puppet",
+		"ruby" ]:
 		ensure => present,
 	}
 
