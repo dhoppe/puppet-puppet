@@ -1,8 +1,33 @@
 class puppet::master inherits puppet {
+	$dbadapter = hiera('dbadapter')
+
 	Puppet::Config["/etc/puppet/puppet.conf"] {
-		config  => "master",
-		notify  +> Service["puppetmaster"],
-		require +> Package["puppetmaster"],
+		config    => "master",
+		dbadapter => hiera('dbadapter'),
+		dbpasswd  => hiera('dbpasswd'),
+		dbserver  => hiera('dbserver'),
+		notify    +> Service["puppetmaster"],
+		require   +> $dbadapter ? {
+			mysql      => [
+				Package["libmysql-ruby"],
+				Package["puppetmaster"]
+			],
+			postgresql => [
+				Package["pg"],
+				Package["puppetmaster"]
+			],
+		}
+	}
+
+	if $dbadapter == "mysql" {
+		package { "libmysql-ruby":
+			ensure => present,
+		}
+	} elsif $dbadapter == "postgresql" {
+		package { "pg":
+			ensure   => present,
+			provider => gem,
+		}
 	}
 
 	package { [
@@ -12,7 +37,9 @@ class puppet::master inherits puppet {
 		provider => gem,
 	}
 
-	package { "puppetmaster":
+	package { [
+		"puppetmaster",
+		"rubygems" ]:
 		ensure => present,
 	}
 
@@ -21,10 +48,18 @@ class puppet::master inherits puppet {
 		ensure     => running,
 		hasrestart => true,
 		hasstatus  => true,
-		require    => [
-			File["puppet.conf"],
-			Package["puppetmaster"]
-		],
+		require    => $dbadapter ? {
+			mysql      => [
+				File["puppet.conf"],
+				Package["libmysql-ruby"],
+				Package["puppetmaster"]
+			],
+			postgresql => [
+				File["puppet.conf"],
+				Package["pg"],
+				Package["puppetmaster"]
+			],
+		}
 	}
 
 	tidy { "/var/lib/puppet/reports":

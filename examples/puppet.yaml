@@ -1,2 +1,5 @@
 ---
 host: 'titan.%{domain}'
+dbadapter: 'postgresql'
+dbpasswd: 'rJKt4JRYpdqg4jkt'
+dbserver: 'localhost'

@@ -5,8 +5,11 @@
 #   puppet::config
 #
 # Parameters:
-#   $config - specify config file
-#   $host   - specify host (Hiera)
+#   $config    - specify config file
+#   $host      - specify host (Hiera)
+#   $dbadapter - specify database adapter (Hiera)
+#   $dbpasswd  - specify database password (Hiera)
+#   $dbserver  - specify database server (Hiera)
 #
 # Actions:
 #   Installs the puppet, namespaceauth.conf, puppet.conf

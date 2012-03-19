@@ -32,5 +32,13 @@
 [master]
   environments = development,testing,production
   reports      = log
+  dbadapter    = <%= dbadapter %>
+  dbname       = puppet
+  dbuser       = puppet
+  dbpassword   = <%= dbpasswd %>
+  dbserver     = <%= dbserver %>
+<% if dbadapter == 'mysql' -%>
+  dbsocket     = /var/run/mysqld/mysqld.sock
+<% end -%>
   storeconfigs = true
   templatedir  = /var/lib/puppet/templates

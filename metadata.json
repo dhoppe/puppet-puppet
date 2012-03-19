@@ -6,11 +6,11 @@
   "project_page": "http://github.com/dhoppe/puppet-puppet",
   "source": "git://github.com/dhoppe/puppet-puppet",
   "summary": "Puppet Module",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "checksums": {
-    "Modulefile": "598295851732bfdee4aca33114d155ba",
-    "README": "45e1bb553d6809f604f957e24e1b14c2",
-    "examples/puppet.yaml": "3377ac1507ad7ac5fe240fc29a80a556",
+    "Modulefile": "f170d2dfb73e21e4985709d98d1f35c3",
+    "README": "f5b1b3d3a4f5f817e0f0066e7a442b2a",
+    "examples/puppet.yaml": "177b736292128311b290cea8a41d71de",
     "files/common/etc/default/puppet": "f44465a767c8947234db9711a6fafa46",
     "lib/hiera.rb": "e84a5a2db45140af852ed6cbd3c6ca6f",
     "lib/hiera/backend.rb": "444961d1adb743c0cfda2854629fc201",
@@ -24,14 +24,23 @@
     "lib/puppet/parser/functions/hiera_array.rb": "b87b306119b6055d8f08e1f12f9a5730",
     "lib/puppet/parser/functions/hiera_hash.rb": "5e93ef44d4b35d6de0427ad618aa215c",
     "lib/puppet/parser/functions/hiera_include.rb": "7cb1543df40a7e844935410bf43e6379",
-    "manifests/init.pp": "8035a7c281a6958df3a96f2365233f87",
-    "manifests/master.pp": "cb406a1c48579fa1ee0b7b9345b23bd9",
+    "manifests/init.pp": "8c1638574743ead4ab777964b794373f",
+    "manifests/master.pp": "c9347fdff443152c6a6457082ec42a50",
     "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
     "spec/spec_helper.rb": "ca19ec4f451ebc7fdb035b52eae6e909",
     "templates/common/etc/puppet/namespaceauth.conf.erb": "75b68b9ad785922fa3c6702f7141465b",
     "templates/common/etc/puppet/puppet-agent.conf.erb": "434f4e0d193e343d8e7e1e7da2e292c5",
-    "templates/common/etc/puppet/puppet-master.conf.erb": "b5de7290ac483856a7b1d70e1f8b59f0",
+    "templates/common/etc/puppet/puppet-master.conf.erb": "d512a99b0a0babc230d226e20357af40",
     "tests/init.pp": "d2609a7f67522ad7f71f07be8070ecaa"
   },
-  "dependencies": []
+  "dependencies": [
+    {
+      "name": "dhoppe/mysql",
+      "versionRequirement": "\u003e\u003d0.0.1"
+    },
+    {
+      "name": "dhoppe/postgresql",
+      "versionRequirement": "\u003e\u003d0.0.1"
+    }
+  ]
 }
