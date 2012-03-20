@@ -3,15 +3,17 @@
 # <%= file %>
 #
 
+<% Puppet::Parser::Functions.function('hiera') -%>
+<% puppet = scope.function_hiera('host') -%>
+<% if fqdn == puppet -%>
 [fileserver]
     allow *.<%= domain %>
 
 [puppetmaster]
     allow *.<%= domain %>
+<% end -%>
 
 [puppetrunner]
-<% Puppet::Parser::Functions.function('hiera') -%>
-<% puppet = scope.function_hiera('host') -%>
     allow <%= puppet %>
 
 [puppetbucket]
@@ -19,3 +21,6 @@
 
 [puppetreports]
     allow *.<%= domain %>
+
+[resource]
+    allow <%= puppet %>

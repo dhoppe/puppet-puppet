@@ -1,0 +1,49 @@
+#
+# THIS FILE IS MANAGED BY PUPPET
+# <%= file %>
+#
+
+<% Puppet::Parser::Functions.function('hiera') -%>
+<% puppet = scope.function_hiera('host') -%>
+<% if fqdn != puppet -%>
+path /run
+method save
+allow <%= puppet %>
+<% else -%>
+path ~ ^/catalog/([^/]+)$
+method find
+allow $1
+
+path ~ ^/node/([^/]+)$
+method find
+allow $1
+
+path /certificate_revocation_list/ca
+method find
+allow *
+
+path /report
+method save
+allow *
+
+path /file
+allow *
+
+path /certificate/ca
+auth no
+method find
+allow *
+
+path /certificate/
+auth no
+method find
+allow *
+
+path /certificate_request
+auth no
+method find, save
+allow *
+
+path /
+auth any
+<% end -%>

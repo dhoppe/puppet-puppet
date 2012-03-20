@@ -21,6 +21,16 @@ class puppet {
 		require => Package["puppet"],
 	}
 
+	file { "/etc/puppet/auth.conf":
+		owner   => root,
+		group   => root,
+		mode    => 0644,
+		alias   => "auth.conf",
+		content => template("puppet/common/etc/puppet/auth.conf.erb"),
+		notify  => Service["puppet"],
+		require => Package["puppet"],
+	}
+
 	file { "/etc/puppet/namespaceauth.conf":
 		owner   => root,
 		group   => root,
