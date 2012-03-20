@@ -38,6 +38,7 @@ class puppet::master inherits puppet {
 	}
 
 	package { [
+		"libactiverecord-ruby1.8",
 		"puppetmaster",
 		"rubygems" ]:
 		ensure => present,
