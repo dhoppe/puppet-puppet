@@ -1,73 +1,73 @@
 class puppet::master inherits puppet {
 	$dbadapter = hiera('dbadapter')
 
-	Puppet::Config["/etc/puppet/puppet.conf"] {
-		config    => "master",
+	Puppet::Config['/etc/puppet/puppet.conf'] {
+		config    => 'master',
 		dbadapter => hiera('dbadapter'),
 		dbpasswd  => hiera('dbpasswd'),
 		dbserver  => hiera('dbserver'),
-		notify    +> Service["puppetmaster"],
+		notify    +> Service['puppetmaster'],
 		require   +> $dbadapter ? {
 			mysql      => [
-				Package["libmysql-ruby"],
-				Package["puppetmaster"]
+				Package['libmysql-ruby'],
+				Package['puppetmaster']
 			],
 			postgresql => [
-				Package["pg"],
-				Package["puppetmaster"]
+				Package['pg'],
+				Package['puppetmaster']
 			],
 		}
 	}
 
-	if $dbadapter == "mysql" {
-		package { "libmysql-ruby":
+	if $dbadapter == 'mysql' {
+		package { 'libmysql-ruby':
 			ensure => present,
 		}
-	} elsif $dbadapter == "postgresql" {
-		package { "pg":
+	} elsif $dbadapter == 'postgresql' {
+		package { 'pg':
 			ensure   => present,
 			provider => gem,
 		}
 	}
 
 	package { [
-		"hiera",
-		"hiera-puppet" ]:
+		'hiera',
+		'hiera-puppet' ]:
 		ensure   => present,
 		provider => gem,
 	}
 
 	package { [
-		"libactiverecord-ruby1.8",
-		"puppetmaster",
-		"rubygems" ]:
+		'libactiverecord-ruby1.8',
+		'puppetmaster',
+		'rubygems' ]:
 		ensure => present,
 	}
 
-	service { "puppetmaster":
-		enable     => true,
+	service { 'puppetmaster':
 		ensure     => running,
+		enable     => true,
 		hasrestart => true,
 		hasstatus  => true,
 		require    => $dbadapter ? {
 			mysql      => [
-				File["puppet.conf"],
-				Package["libmysql-ruby"],
-				Package["puppetmaster"]
+				File['puppet.conf'],
+				Package['libmysql-ruby'],
+				Package['puppetmaster']
 			],
 			postgresql => [
-				File["puppet.conf"],
-				Package["pg"],
-				Package["puppetmaster"]
+				File['puppet.conf'],
+				Package['pg'],
+				Package['puppetmaster']
 			],
 		}
 	}
 
-	tidy { "/var/lib/puppet/reports":
-		age     => "1m",
+	tidy { '/var/lib/puppet/reports':
+		age     => '1m',
 		recurse => true,
-		type    => "mtime",
-		matches => "*.yaml",
+		type    => 'mtime',
+		matches => '*.yaml',
 	}
 }
 
