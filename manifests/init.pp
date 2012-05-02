@@ -1,4 +1,9 @@
 class puppet {
+	validate_string(hiera('host'))
+	validate_string(hiera('dbadapter'))
+	validate_string(hiera('dbpasswd'))
+	validate_string(hiera('dbserver'))
+
 	define puppet::config($config = false, $host = false, $dbadapter = false, $dbpasswd = false, $dbserver = false) {
 		file { "$name":
 			owner   => root,
