@@ -1,5 +1,5 @@
 name 'dhoppe-puppet'
-version '0.0.13'
+version '0.0.14'
 
 author 'Dennis Hoppe'
 license 'GPLv2'
