@@ -6,9 +6,9 @@
   "project_page": "http://github.com/dhoppe/puppet-puppet",
   "source": "git://github.com/dhoppe/puppet-puppet",
   "summary": "Puppet Module",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "checksums": {
-    "Modulefile": "0774a4b60817735bad9721684586773d",
+    "Modulefile": "d989b4ff5d95ccba3dbbda3a45e84132",
     "README": "d3ca1632c12d9c32cd0dd00ded61f5e3",
     "examples/puppet.yaml": "177b736292128311b290cea8a41d71de",
     "files/common/etc/default/puppet": "f44465a767c8947234db9711a6fafa46",
@@ -16,7 +16,7 @@
     "lib/facter/puppet_vardir.rb": "c7ddc97e8a84ded3dd93baa5b9b3283d",
     "lib/facter/root_home.rb": "f559294cceafcf70799339627d94871d",
     "lib/facter/util/puppet_settings.rb": "9f1d2593d0ae56bfca89d4b9266aeee1",
-    "lib/hiera.rb": "d850087dc93a3a3800b1392577568e2f",
+    "lib/hiera.rb": "6e5d75645d1a87264a03cfe16272f29e",
     "lib/hiera/backend.rb": "8cd21acfe44c3a953d8704a50b4dc9f0",
     "lib/hiera/backend/puppet_backend.rb": "83ce509df25be34e57a65f671815f2b7",
     "lib/hiera/backend/yaml_backend.rb": "d61aeb7a1e839abf64e2b8ed85b2bf43",
@@ -41,10 +41,10 @@
     "lib/puppet/parser/functions/grep.rb": "5682995af458b05f3b53dd794c4bf896",
     "lib/puppet/parser/functions/has_key.rb": "7cd9728c38f0b0065f832dabd62b0e7e",
     "lib/puppet/parser/functions/hash.rb": "75fd86c01d5b1e50be1bc8b22d3d0a61",
-    "lib/puppet/parser/functions/hiera.rb": "82b2c850bf9e2e46f1aea769e090d706",
-    "lib/puppet/parser/functions/hiera_array.rb": "b87b306119b6055d8f08e1f12f9a5730",
-    "lib/puppet/parser/functions/hiera_hash.rb": "fbe4b9193ae65593cf869285b53fa8ce",
-    "lib/puppet/parser/functions/hiera_include.rb": "7cb1543df40a7e844935410bf43e6379",
+    "lib/puppet/parser/functions/hiera.rb": "0fb1d9a70540d5254596549f6a04175f",
+    "lib/puppet/parser/functions/hiera_array.rb": "eb9990ed2c339c0bbc9177c41a82face",
+    "lib/puppet/parser/functions/hiera_hash.rb": "7f3bd67c29c49836ca842b518252b8f5",
+    "lib/puppet/parser/functions/hiera_include.rb": "2d4ec3315e50e5a1f8b24792b7c28511",
     "lib/puppet/parser/functions/is_array.rb": "875ca4356cb0d7a10606fb146b4a3d11",
     "lib/puppet/parser/functions/is_domain_name.rb": "fba9f855df3bbf90d72dfd5201f65d2b",
     "lib/puppet/parser/functions/is_float.rb": "491937483b14fbe2594a6e0e9af6acf9",
@@ -92,7 +92,7 @@
     "lib/puppet/parser/functions/zip.rb": "a80782461ed9465f0cd0c010936f1855",
     "lib/puppet/provider/file_line/ruby.rb": "de6a4c25d161cd510ba11a27f62c7623",
     "lib/puppet/type/anchor.rb": "cc1da7acfe1259d5b86a64e2dea42c34",
-    "lib/puppet/type/file_line.rb": "44bc4e7af01b193936b00886c897d433",
+    "lib/puppet/type/file_line.rb": "5bb01e00c49a26b3bcae831e526087a2",
     "manifests/config.pp": "e3ce07227ca1ff762a07e550a6451db5",
     "manifests/init.pp": "550a6e653568d23c76bc38890be4cecf",
     "manifests/master.pp": "7e9a27ea8c1508f5af4b68c7dcdc5588",
@@ -119,15 +119,15 @@
       "parameters": [
         {
           "name": "name",
-          "doc": "arbitrary name used as identity"
+          "doc": "An arbitrary name used as the identity of the resource."
         },
         {
           "name": "line",
-          "doc": "The line to be appended to the path."
+          "doc": "The line to be appended to the file located by the path parameter."
         },
         {
           "name": "path",
-          "doc": "File to possibly append a line to."
+          "doc": "The file Puppet will ensure contains the line specified by the line parameter."
         }
       ],
       "providers": [
