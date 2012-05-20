@@ -1,4 +1,10 @@
-define puppet::config($config, $dbadapter, $dbpasswd, $dbserver, $host) {
+define puppet::config(
+  $config,
+  $host,
+  $dbadapter = undef,
+  $dbpasswd  = undef,
+  $dbserver  = undef
+) {
   file { $name:
     owner   => 'root',
     group   => 'root',
