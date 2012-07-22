@@ -1,6 +1,6 @@
 class puppet::params {
   case $::lsbdistcodename {
-    'lenny', 'squeeze', 'maverick', 'natty': {
+    'lenny', 'squeeze', 'maverick', 'natty', 'precise': {
       $dbadapter = hiera('dbadapter')
       $dbpasswd  = hiera('dbpasswd')
       $dbserver  = hiera('dbserver')
