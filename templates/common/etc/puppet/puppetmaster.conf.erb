@@ -1,0 +1,32 @@
+#
+# THIS FILE IS MANAGED BY PUPPET
+# <%= file %>
+#
+
+[main]
+logdir=/var/log/puppet
+vardir=/var/lib/puppet
+ssldir=/var/lib/puppet/ssl
+rundir=/var/run/puppet
+factpath=$vardir/lib/facter
+<% if scope.lookupvar('::puppet::main_etckeeper') -%>
+prerun_command=/etc/puppet/etckeeper-commit-pre
+postrun_command=/etc/puppet/etckeeper-commit-post
+<% end -%>
+
+[agent]
+environment=<%= scope.lookupvar('::puppet::agent_environment') %>
+listen=<%= scope.lookupvar('::puppet::agent_listen') %>
+pluginsync=<%= scope.lookupvar('::puppet::agent_pluginsync') %>
+report=<%= scope.lookupvar('::puppet::agent_report') %>
+server=<%= scope.lookupvar('::puppet::agent_server') %>
+
+[master]
+autosign=<%= scope.lookupvar('::puppet::master_autosign') %>
+reports=<%= scope.lookupvar('::puppet::master_reports').join(", ") %>
+
+# These are needed when the puppetmaster is run by passenger
+# and can safely be removed if webrick is used.
+ssl_client_header = SSL_CLIENT_S_DN 
+ssl_client_verify_header = SSL_CLIENT_VERIFY
+
