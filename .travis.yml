@@ -1,0 +1,29 @@
+---
+language: ruby
+bundler_args: --without development --jobs 3 --retry 3
+script: "bundle exec rake validate && bundle exec rake lint && bundle exec rake spec SPEC_OPTS='--format documentation'"
+sudo: false
+after_success:
+  - git clone -q git://github.com/puppetlabs/ghpublisher.git .forge-releng
+  - .forge-releng/publish
+env:
+  global:
+  - PUBLISHER_LOGIN=dhoppe
+  - secure: "0I9qam21xoLc6wEMcSgg6i3s4qKvuSfZEMet7LT9N32OBTbdlrHg6uO31vRscuu+OcOgK9pOWZJBeEciu0Ty28bM3SFTYwfLQbXZqbjCfbc1MvmEmbuhRapvJD8G60UnAdTV1zPgpW+aLu/LPiY/vmoY0niRfGGq+7osSVdjXeY="
+matrix:
+  fast_finish: true
+  include:
+  - rvm: 1.8.7
+    env: PUPPET_GEM_VERSION="~> 2.7.0" FACTER_GEM_VERSION="~> 1.6.0"
+  - rvm: 1.8.7
+    env: PUPPET_GEM_VERSION="~> 2.7.0" FACTER_GEM_VERSION="~> 1.7.0"
+  - rvm: 1.9.3
+    env: PUPPET_GEM_VERSION="~> 3.0"
+  - rvm: 2.0.0
+    env: PUPPET_GEM_VERSION="~> 3.0"
+  - rvm: 1.9.3
+    env: PUPPET_GEM_VERSION="~> 3.5.0" STRICT_VARIABLES="yes"
+  - rvm: 2.0.0
+    env: PUPPET_GEM_VERSION="~> 3.5.0" STRICT_VARIABLES="yes"
+notifications:
+  email: false

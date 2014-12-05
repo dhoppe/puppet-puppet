@@ -1,0 +1,38 @@
+---
+puppet::config_file_template: 'puppet/common/etc/puppet/puppetmaster.conf.erb'
+puppet::config_file_hash:
+  'puppet':
+    config_file_path:     '/etc/default/puppet'
+    config_file_template: 'puppet/common/etc/default/puppet.erb'
+  'puppetmaster':
+    config_file_path:     '/etc/default/puppetmaster'
+    config_file_template: 'puppet/common/etc/default/puppetmaster.erb'
+    config_file_notify:   'Service[puppetmaster]'
+    config_file_require:  'Package[puppetmaster]'
+  'auth.conf':
+    config_file_path:     '/etc/puppet/auth.conf'
+    config_file_template: 'puppet/common/etc/puppet/auth.conf.erb'
+    config_file_notify:   'Service[puppetmaster]'
+    config_file_require:  'Package[puppetmaster]'
+  'hiera.yaml':
+    config_file_path:    '/etc/puppet/hiera.yaml'
+    config_file_source:  'puppet:///modules/puppet/common/etc/puppet/hiera.yaml'
+    config_file_notify:  'Service[puppetmaster]'
+    config_file_require: 'Package[puppetmaster]'
+  'fileserver.conf':
+    config_file_path:     '/etc/puppet/fileserver.conf'
+    config_file_template: 'puppet/common/etc/puppet/fileserver.conf.erb'
+    config_file_notify:   'Service[puppetmaster]'
+    config_file_require:  'Package[puppetmaster]'
+puppet::main_etckeeper: false
+puppet::agent_environment: 'production'
+puppet::agent_listen: true
+puppet::agent_pluginsync: true
+puppet::agent_puppetdlog: true
+puppet::agent_report: true
+puppet::agent_server: "puppet.%{::domain}"
+puppet::master_autosign: true
+puppet::master_puppetdlog: true
+puppet::master_reports:
+  - store
+puppet::server_mode: 'webrick'
