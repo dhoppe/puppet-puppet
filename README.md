@@ -91,8 +91,8 @@ Install puppet with the recommended parameters.
           config_file_require => 'Package[puppetmaster]',
         },
         'fileserver.conf' => {
-          config_file_path     => '/etc/puppet/auth.conf',
-          config_file_template => 'puppet/common/etc/puppet/auth.conf.erb',
+          config_file_path     => '/etc/puppet/fileserver.conf',
+          config_file_template => 'puppet/common/etc/puppet/fileserver.conf.erb',
           config_file_notify   => 'Service[puppetmaster]',
           config_file_require  => 'Package[puppetmaster]',
         },
