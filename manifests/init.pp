@@ -40,6 +40,9 @@ class puppet (
   $master_autosign          = false,
   $master_puppetdlog        = true,
   $master_reports           = ['store'],
+  $master_storeconfigs      = undef,
+  $master_strict_variables  = false,
+  $master_stringify_facts   = true,
 
   $server_mode              = undef,
 ) inherits ::puppet::params {
