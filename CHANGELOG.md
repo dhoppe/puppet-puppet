@@ -1,3 +1,7 @@
+## 2014-12-08 Release 1.0.4
+### Summary:
+- [Puppet] Fix typo
+
 ## 2014-12-08 Release 1.0.3
 ### Summary:
 - [Puppet] Add support for directory environments
