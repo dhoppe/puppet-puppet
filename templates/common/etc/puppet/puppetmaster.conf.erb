@@ -23,6 +23,7 @@ server=<%= scope.lookupvar('::puppet::agent_server') %>
 
 [master]
 autosign=<%= scope.lookupvar('::puppet::master_autosign') %>
+environmentpath=<%= scope.lookupvar('::puppet::master_environmentpath') %>
 reports=<%= scope.lookupvar('::puppet::master_reports').join(", ") %>
 <% if scope.lookupvar('::puppet::master_storeconfigs') == 'puppetdb' -%>
 storeconfigs=true
