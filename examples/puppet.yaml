@@ -35,4 +35,7 @@ puppet::master_autosign: true
 puppet::master_puppetdlog: true
 puppet::master_reports:
   - store
+puppet::master_storeconfigs: 'puppetdb'
+puppet::master_strict_variables: false
+puppet::master_stringify_facts: true
 puppet::server_mode: 'webrick'

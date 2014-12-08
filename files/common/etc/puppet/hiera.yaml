@@ -1,3 +1,8 @@
+#
+# THIS FILE IS MANAGED BY PUPPET
+# /etc/puppet/environments/production/modules/puppet/files/common/etc/puppet/hiera.yaml
+#
+
 ---
 :backends:
   - 'yaml'

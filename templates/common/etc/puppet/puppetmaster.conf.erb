@@ -24,6 +24,12 @@ server=<%= scope.lookupvar('::puppet::agent_server') %>
 [master]
 autosign=<%= scope.lookupvar('::puppet::master_autosign') %>
 reports=<%= scope.lookupvar('::puppet::master_reports').join(", ") %>
+<% if scope.lookupvar('::puppet::master_storeconfigs') == 'puppetdb' -%>
+storeconfigs=true
+storeconfigs_backend=puppetdb
+<% end -%>
+strict_variables=<%= scope.lookupvar('::puppet::master_strict_variables') %>
+stringify_facts=<%= scope.lookupvar('::puppet::master_stringify_facts') %>
 
 # These are needed when the puppetmaster is run by passenger
 # and can safely be removed if webrick is used.

@@ -1,3 +1,7 @@
+## 2014-12-08 Release 1.0.2
+### Summary:
+- [Puppet] Add support for PuppetDB and additonal variables
+
 ## 2014-12-06 Release 1.0.1
 ### Summary:
 - [Puppet] Update documentation

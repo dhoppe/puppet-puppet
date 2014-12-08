@@ -97,6 +97,7 @@ Install puppet with the recommended parameters.
           config_file_require  => 'Package[puppetmaster]',
         },
       },
+      master_storeconfigs  => 'puppetdb',
       server_mode          => 'webrick',
     }
 ```
@@ -355,6 +356,29 @@ Determines if puppet master should write a log to '/var/log/puppet/puppetmaster.
 #### `master_reports`
 
 Determines wich kind of reports puppet master should generate. Valid values are 'http', 'log', 'rrdgraph', 'store' and 'tagmail'. Defaults to '['store']'.
+
+#### `master_storeconfigs`
+
+Determines if the catalog, facts and related data of each client should be stored. This also enables the import and export of resources. Valid values are 'puppetdb'. Defaults to 'undef'.
+
+*** This module does not install and manage PuppetDB***.
+
+Please use this [PuppetDB module](https://github.com/puppetlabs/puppetlabs-puppetdb) and the following code for that purpose.
+
+```puppet
+    class { 'puppetdb': }
+    class { 'puppetdb::master::config':
+      manage_storeconfigs => false,
+    }
+```
+
+#### `master_strict_variables`
+
+Determines if the parser should raise errors when referencing unknown variables. Valid values are 'true' and 'false'. Defaults to 'false'.
+
+#### `master_stringify_facts`
+
+Determines if fact values should be flatten to string. Valid values are 'true' and 'false'. Defaults to 'true'.
 
 #### `server_mode`
 
