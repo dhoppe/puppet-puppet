@@ -1,3 +1,7 @@
+## 2014-12-08 Release 1.0.3
+### Summary:
+- [Puppet] Add support for directory environments
+
 ## 2014-12-08 Release 1.0.2
 ### Summary:
 - [Puppet] Add support for PuppetDB and additonal variables
