@@ -38,6 +38,7 @@ class puppet (
   $agent_server             = "puppet.${::domain}",
 
   $master_autosign          = false,
+  $master_environmentpath   = '$confir/environments',
   $master_puppetdlog        = true,
   $master_reports           = ['store'],
   $master_storeconfigs      = undef,

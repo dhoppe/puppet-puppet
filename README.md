@@ -349,6 +349,10 @@ Determines which puppet master should be used. Defaults to "puppet.${::domain}".
 
 Determines if puppet master should autosign any key request. Defaults to 'false'.
 
+#### `master_environmentpath`
+
+Determines environmentpath to enable directory environments. Defaults to '$confdir/environments'.
+
 #### `master_puppetdlog`
 
 Determines if puppet master should write a log to '/var/log/puppet/puppetmaster.log'. Valid values are 'true' and 'false'. Defaults to 'true'.
