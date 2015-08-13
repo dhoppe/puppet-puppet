@@ -11,6 +11,7 @@ describe 'puppet::define', :type => :define do
     context "on #{osfamily}" do
       context 'when source file' do
         let(:params) {{
+          :config_file_path   => '/etc/puppet/puppet.2nd.conf',
           :config_file_source => 'puppet:///modules/puppet/common/etc/puppet/puppet.conf',
         }}
 
@@ -26,6 +27,7 @@ describe 'puppet::define', :type => :define do
 
       context 'when content string' do
         let(:params) {{
+          :config_file_path   => '/etc/puppet/puppet.3rd.conf',
           :config_file_string => '# THIS FILE IS MANAGED BY PUPPET',
         }}
 
@@ -41,6 +43,7 @@ describe 'puppet::define', :type => :define do
 
       context 'when content template' do
         let(:params) {{
+          :config_file_path     => '/etc/puppet/puppet.4th.conf',
           :config_file_template => 'puppet/common/etc/puppet/puppet.conf.erb',
         }}
 
@@ -56,6 +59,7 @@ describe 'puppet::define', :type => :define do
 
       context 'when content template (custom)' do
         let(:params) {{
+          :config_file_path         => '/etc/puppet/puppet.5th.conf',
           :config_file_template     => 'puppet/common/etc/puppet/puppet.conf.erb',
           :config_file_options_hash => {
             'key' => 'value',

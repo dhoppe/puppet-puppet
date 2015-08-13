@@ -1,16 +1,16 @@
 {
   "name": "dhoppe-puppet",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "Dennis Hoppe",
   "summary": "This module installs, configures and manages the Puppet service.",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "source": "git://github.com/dhoppe/puppet-puppet.git",
   "project_page": "https://github.com/dhoppe/puppet-puppet",
   "issues_url": "https://github.com/dhoppe/puppet-puppet/issues",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 3.2.0 < 5.0.0"
+      "version_requirement": ">= 4.5.0 < 5.0.0"
     }
   ],
   "operatingsystem_support": [
