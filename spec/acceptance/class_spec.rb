@@ -3,7 +3,6 @@ require 'spec_helper_acceptance'
 case fact('osfamily')
 when 'Debian'
   package_name     = 'puppet'
-  config_dir_path  = '/etc/puppet'
   config_file_path = '/etc/puppet/puppet.conf'
   service_name     = 'puppet'
 end
@@ -15,7 +14,7 @@ describe 'puppet', :if => SUPPORTED_PLATFORMS.include?(fact('osfamily')) do
     EOS
 
     apply_manifest(pp, :catch_failures => true)
-#    apply_manifest(pp, :catch_changes => true)
+    # apply_manifest(pp, :catch_changes => true)
     apply_manifest(pp, :expect_changes => true)
   end
 
