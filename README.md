@@ -37,7 +37,7 @@ This module handles installing, configuring and running Puppet across a range of
 
 ### Setup Requirements
 
-* Puppet >= 2.7
+* Puppet >= 3.0
 * Facter >= 1.6
 * [Stdlib module](https://github.com/puppetlabs/puppetlabs-stdlib)
 

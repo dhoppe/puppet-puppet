@@ -10,14 +10,14 @@
 # Setting this to "no" keeps the puppet master service from running.
 #
 # If you are using Passenger, you should have this set to "no."
-<% if scope.lookupvar('::puppet::master::service_enable') -%>
+<% if scope['::puppet::master::service_enable'] -%>
 START=yes
 <% else -%>
 START=no
 <% end -%>
 
 # Startup options
-<% if scope.lookupvar('::puppet::master_puppetdlog') -%>
+<% if scope['::puppet::master_puppetdlog'] -%>
 DAEMON_OPTS="--logdest /var/log/puppet/puppetmaster.log"
 <% else -%>
 DAEMON_OPTS=""

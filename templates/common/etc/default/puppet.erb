@@ -8,14 +8,14 @@
 # Enable puppet agent service?
 # Setting this to "yes" allows the puppet agent service to run.
 # Setting this to "no" keeps the puppet agent service from running.
-<% if scope.lookupvar('::puppet::service_enable') -%>
+<% if scope['::puppet::service_enable'] -%>
 START=yes
 <% else -%>
 START=no
 <% end -%>
 
 # Startup options
-<% if scope.lookupvar('::puppet::agent_puppetdlog') -%>
+<% if scope['::puppet::agent_puppetdlog'] -%>
 DAEMON_OPTS="--logdest /var/log/puppet/puppet.log"
 <% else -%>
 DAEMON_OPTS=""

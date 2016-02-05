@@ -9,28 +9,28 @@ vardir=/var/lib/puppet
 ssldir=/var/lib/puppet/ssl
 rundir=/var/run/puppet
 factpath=$vardir/lib/facter
-<% if scope.lookupvar('::puppet::main_etckeeper') -%>
+<% if scope['::puppet::main_etckeeper'] -%>
 prerun_command=/etc/puppet/etckeeper-commit-pre
 postrun_command=/etc/puppet/etckeeper-commit-post
 <% end -%>
 
 [agent]
-environment=<%= scope.lookupvar('::puppet::agent_environment') %>
-listen=<%= scope.lookupvar('::puppet::agent_listen') %>
-pluginsync=<%= scope.lookupvar('::puppet::agent_pluginsync') %>
-report=<%= scope.lookupvar('::puppet::agent_report') %>
-server=<%= scope.lookupvar('::puppet::agent_server') %>
+environment=<%= scope['::puppet::agent_environment'] %>
+listen=<%= scope['::puppet::agent_listen'] %>
+pluginsync=<%= scope['::puppet::agent_pluginsync'] %>
+report=<%= scope['::puppet::agent_report'] %>
+server=<%= scope['::puppet::agent_server'] %>
 
 [master]
-autosign=<%= scope.lookupvar('::puppet::master_autosign') %>
-environmentpath=<%= scope.lookupvar('::puppet::master_environmentpath') %>
-reports=<%= scope.lookupvar('::puppet::master_reports').join(", ") %>
-<% if scope.lookupvar('::puppet::master_storeconfigs') == 'puppetdb' -%>
+autosign=<%= scope['::puppet::master_autosign'] %>
+environmentpath=<%= scope['::puppet::master_environmentpath'] %>
+reports=<%= scope['::puppet::master_reports'].join(", ") %>
+<% if scope['::puppet::master_storeconfigs'] == 'puppetdb' -%>
 storeconfigs=true
 storeconfigs_backend=puppetdb
 <% end -%>
-strict_variables=<%= scope.lookupvar('::puppet::master_strict_variables') %>
-stringify_facts=<%= scope.lookupvar('::puppet::master_stringify_facts') %>
+strict_variables=<%= scope['::puppet::master_strict_variables'] %>
+stringify_facts=<%= scope['::puppet::master_stringify_facts'] %>
 
 # These are needed when the puppetmaster is run by passenger
 # and can safely be removed if webrick is used.
