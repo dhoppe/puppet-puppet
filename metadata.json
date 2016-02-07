@@ -1,6 +1,6 @@
 {
   "name": "dhoppe-puppet",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "author": "Dennis Hoppe",
   "summary": "This module installs, configures and manages the Puppet service.",
   "license": "Apache-2.0",
