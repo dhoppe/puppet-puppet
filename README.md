@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.org/dhoppe/puppet-puppet.png?branch=master)](https://travis-ci.org/dhoppe/puppet-puppet)
 [![Puppet Forge](https://img.shields.io/puppetforge/v/dhoppe/puppet.svg)](https://forge.puppetlabs.com/dhoppe/puppet)
+[![Puppet Forge](https://img.shields.io/puppetforge/dt/dhoppe/puppet.svg)](https://forge.puppetlabs.com/dhoppe/puppet)
+[![Puppet Forge](https://img.shields.io/puppetforge/mc/dhoppe.svg)](https://forge.puppetlabs.com/dhoppe)
+[![Puppet Forge](https://img.shields.io/puppetforge/rc/dhoppe.svg)](https://forge.puppetlabs.com/dhoppe)
 
 #### Table of Contents
 
@@ -34,7 +37,7 @@ This module handles installing, configuring and running Puppet across a range of
 
 ### Setup Requirements
 
-* Puppet >= 2.7
+* Puppet >= 3.0
 * Facter >= 1.6
 * [Stdlib module](https://github.com/puppetlabs/puppetlabs-stdlib)
 

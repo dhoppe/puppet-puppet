@@ -119,11 +119,11 @@ path /v2.0/environments
 method find
 allow *
 
-<% if scope.lookupvar('::puppet::agent_listen') -%>
+<% if scope['::puppet::agent_listen'] -%>
 path /run
 auth any
 method save
-allow <%= scope.lookupvar('::puppet::agent_server') %>
+allow <%= scope['::puppet::agent_server'] %>
 
 <% end -%>
 # deny everything else; this ACL is not strictly necessary, but

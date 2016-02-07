@@ -18,9 +18,9 @@ describe 'puppet', :type => :class do
       describe 'puppet::install' do
         context 'defaults' do
           it do
-            is_expected.to contain_package('puppet').with({
+            is_expected.to contain_package('puppet').with(
               'ensure' => 'present',
-            })
+            )
           end
         end
 
@@ -30,9 +30,9 @@ describe 'puppet', :type => :class do
           }}
 
           it do
-            is_expected.to contain_package('puppet').with({
+            is_expected.to contain_package('puppet').with(
               'ensure' => 'latest',
-            })
+            )
           end
         end
 
@@ -44,22 +44,22 @@ describe 'puppet', :type => :class do
           }}
 
           it do
-            is_expected.to contain_package('puppet').with({
+            is_expected.to contain_package('puppet').with(
               'ensure' => 'absent',
-            })
+            )
           end
           it do
-            is_expected.to contain_file('puppet.conf').with({
+            is_expected.to contain_file('puppet.conf').with(
               'ensure'  => 'present',
               'notify'  => 'Service[puppet]',
               'require' => 'Package[puppet]',
-            })
+            )
           end
           it do
-            is_expected.to contain_service('puppet').with({
+            is_expected.to contain_service('puppet').with(
               'ensure' => 'stopped',
               'enable' => false,
-            })
+            )
           end
         end
 
@@ -71,22 +71,22 @@ describe 'puppet', :type => :class do
           }}
 
           it do
-            is_expected.to contain_package('puppet').with({
+            is_expected.to contain_package('puppet').with(
               'ensure' => 'purged',
-            })
+            )
           end
           it do
-            is_expected.to contain_file('puppet.conf').with({
+            is_expected.to contain_file('puppet.conf').with(
               'ensure'  => 'absent',
               'notify'  => 'Service[puppet]',
               'require' => 'Package[puppet]',
-            })
+            )
           end
           it do
-            is_expected.to contain_service('puppet').with({
+            is_expected.to contain_service('puppet').with(
               'ensure' => 'stopped',
               'enable' => false,
-            })
+            )
           end
         end
       end
@@ -94,11 +94,11 @@ describe 'puppet', :type => :class do
       describe 'puppet::config' do
         context 'defaults' do
           it do
-            is_expected.to contain_file('puppet.conf').with({
+            is_expected.to contain_file('puppet.conf').with(
               'ensure'  => 'present',
               'notify'  => 'Service[puppet]',
               'require' => 'Package[puppet]',
-            })
+            )
           end
         end
 
@@ -108,7 +108,7 @@ describe 'puppet', :type => :class do
           }}
 
           it do
-            is_expected.to contain_file('puppet.dir').with({
+            is_expected.to contain_file('puppet.dir').with(
               'ensure'  => 'directory',
               'force'   => false,
               'purge'   => false,
@@ -116,7 +116,7 @@ describe 'puppet', :type => :class do
               'source'  => 'puppet:///modules/puppet/common/etc/puppet',
               'notify'  => 'Service[puppet]',
               'require' => 'Package[puppet]',
-            })
+            )
           end
         end
 
@@ -127,7 +127,7 @@ describe 'puppet', :type => :class do
           }}
 
           it do
-            is_expected.to contain_file('puppet.dir').with({
+            is_expected.to contain_file('puppet.dir').with(
               'ensure'  => 'directory',
               'force'   => true,
               'purge'   => true,
@@ -135,7 +135,7 @@ describe 'puppet', :type => :class do
               'source'  => 'puppet:///modules/puppet/common/etc/puppet',
               'notify'  => 'Service[puppet]',
               'require' => 'Package[puppet]',
-            })
+            )
           end
         end
 
@@ -145,12 +145,12 @@ describe 'puppet', :type => :class do
           }}
 
           it do
-            is_expected.to contain_file('puppet.conf').with({
+            is_expected.to contain_file('puppet.conf').with(
               'ensure'  => 'present',
               'source'  => 'puppet:///modules/puppet/common/etc/puppet/puppet.conf',
               'notify'  => 'Service[puppet]',
               'require' => 'Package[puppet]',
-            })
+            )
           end
         end
 
@@ -160,12 +160,12 @@ describe 'puppet', :type => :class do
           }}
 
           it do
-            is_expected.to contain_file('puppet.conf').with({
+            is_expected.to contain_file('puppet.conf').with(
               'ensure'  => 'present',
               'content' => /THIS FILE IS MANAGED BY PUPPET/,
               'notify'  => 'Service[puppet]',
               'require' => 'Package[puppet]',
-            })
+            )
           end
         end
 
@@ -175,12 +175,12 @@ describe 'puppet', :type => :class do
           }}
 
           it do
-            is_expected.to contain_file('puppet.conf').with({
+            is_expected.to contain_file('puppet.conf').with(
               'ensure'  => 'present',
               'content' => /THIS FILE IS MANAGED BY PUPPET/,
               'notify'  => 'Service[puppet]',
               'require' => 'Package[puppet]',
-            })
+            )
           end
         end
 
@@ -193,12 +193,12 @@ describe 'puppet', :type => :class do
           }}
 
           it do
-            is_expected.to contain_file('puppet.conf').with({
+            is_expected.to contain_file('puppet.conf').with(
               'ensure'  => 'present',
               'content' => /THIS FILE IS MANAGED BY PUPPET/,
               'notify'  => 'Service[puppet]',
               'require' => 'Package[puppet]',
-            })
+            )
           end
         end
       end
@@ -206,10 +206,10 @@ describe 'puppet', :type => :class do
       describe 'puppet::service' do
         context 'defaults' do
           it do
-            is_expected.to contain_service('puppet').with({
+            is_expected.to contain_service('puppet').with(
               'ensure' => 'running',
               'enable' => true,
-            })
+            )
           end
         end
 
@@ -219,10 +219,10 @@ describe 'puppet', :type => :class do
           }}
 
           it do
-            is_expected.to contain_service('puppet').with({
+            is_expected.to contain_service('puppet').with(
               'ensure' => 'stopped',
               'enable' => true,
-            })
+            )
           end
         end
       end

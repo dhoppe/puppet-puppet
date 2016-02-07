@@ -9,17 +9,17 @@ vardir=/var/lib/puppet
 ssldir=/var/lib/puppet/ssl
 rundir=/var/run/puppet
 factpath=$vardir/lib/facter
-<% if scope.lookupvar('::puppet::main_etckeeper') -%>
+<% if scope['::puppet::main_etckeeper'] -%>
 prerun_command=/etc/puppet/etckeeper-commit-pre
 postrun_command=/etc/puppet/etckeeper-commit-post
 <% end -%>
 
 [agent]
-environment=<%= scope.lookupvar('::puppet::agent_environment') %>
-listen=<%= scope.lookupvar('::puppet::agent_listen') %>
-pluginsync=<%= scope.lookupvar('::puppet::agent_pluginsync') %>
-report=<%= scope.lookupvar('::puppet::agent_report') %>
-server=<%= scope.lookupvar('::puppet::agent_server') %>
+environment=<%= scope['::puppet::agent_environment'] %>
+listen=<%= scope['::puppet::agent_listen'] %>
+pluginsync=<%= scope['::puppet::agent_pluginsync'] %>
+report=<%= scope['::puppet::agent_report'] %>
+server=<%= scope['::puppet::agent_server'] %>
 
 [master]
 # These are needed when the puppetmaster is run by passenger

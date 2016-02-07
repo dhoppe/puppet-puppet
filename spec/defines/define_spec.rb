@@ -16,12 +16,12 @@ describe 'puppet::define', :type => :define do
         }}
 
         it do
-          is_expected.to contain_file('define_puppet.conf').with({
+          is_expected.to contain_file('define_puppet.conf').with(
             'ensure'  => 'present',
             'source'  => 'puppet:///modules/puppet/common/etc/puppet/puppet.conf',
             'notify'  => 'Service[puppet]',
             'require' => 'Package[puppet]',
-          })
+          )
         end
       end
 
@@ -32,12 +32,12 @@ describe 'puppet::define', :type => :define do
         }}
 
         it do
-          is_expected.to contain_file('define_puppet.conf').with({
+          is_expected.to contain_file('define_puppet.conf').with(
             'ensure'  => 'present',
             'content' => /THIS FILE IS MANAGED BY PUPPET/,
             'notify'  => 'Service[puppet]',
             'require' => 'Package[puppet]',
-          })
+          )
         end
       end
 
@@ -48,12 +48,12 @@ describe 'puppet::define', :type => :define do
         }}
 
         it do
-          is_expected.to contain_file('define_puppet.conf').with({
+          is_expected.to contain_file('define_puppet.conf').with(
             'ensure'  => 'present',
             'content' => /THIS FILE IS MANAGED BY PUPPET/,
             'notify'  => 'Service[puppet]',
             'require' => 'Package[puppet]',
-          })
+          )
         end
       end
 
@@ -67,12 +67,12 @@ describe 'puppet::define', :type => :define do
         }}
 
         it do
-          is_expected.to contain_file('define_puppet.conf').with({
+          is_expected.to contain_file('define_puppet.conf').with(
             'ensure'  => 'present',
             'content' => /THIS FILE IS MANAGED BY PUPPET/,
             'notify'  => 'Service[puppet]',
             'require' => 'Package[puppet]',
-          })
+          )
         end
       end
     end
