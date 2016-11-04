@@ -1,22 +1,20 @@
 require 'spec_helper'
 
 describe 'puppet', type: :class do
-  ['Debian'].each do |osfamily|
-    let(:facts) do
-      {
-        osfamily: osfamily
-      }
-    end
+  on_supported_os.each do |os, facts|
+    context "on #{os}" do
+      let(:facts) do
+        facts
+      end
 
-    it { is_expected.to compile.with_all_deps }
-    it { is_expected.to contain_anchor('puppet::begin') }
-    it { is_expected.to contain_class('puppet::params') }
-    it { is_expected.to contain_class('puppet::install') }
-    it { is_expected.to contain_class('puppet::config') }
-    it { is_expected.to contain_class('puppet::service') }
-    it { is_expected.to contain_anchor('puppet::end') }
+      it { is_expected.to compile.with_all_deps }
+      it { is_expected.to contain_anchor('puppet::begin') }
+      it { is_expected.to contain_class('puppet::params') }
+      it { is_expected.to contain_class('puppet::install') }
+      it { is_expected.to contain_class('puppet::config') }
+      it { is_expected.to contain_class('puppet::service') }
+      it { is_expected.to contain_anchor('puppet::end') }
 
-    context "on #{osfamily}" do
       describe 'puppet::install' do
         context 'defaults' do
           it do
