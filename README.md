@@ -1,10 +1,11 @@
 # puppet
 
 [![Build Status](https://travis-ci.org/dhoppe/puppet-puppet.png?branch=master)](https://travis-ci.org/dhoppe/puppet-puppet)
+[![Code Coverage](https://coveralls.io/repos/github/dhoppe/puppet-puppet/badge.svg?branch=master)](https://coveralls.io/github/dhoppe/puppet-puppet)
 [![Puppet Forge](https://img.shields.io/puppetforge/v/dhoppe/puppet.svg)](https://forge.puppetlabs.com/dhoppe/puppet)
-[![Puppet Forge](https://img.shields.io/puppetforge/dt/dhoppe/puppet.svg)](https://forge.puppetlabs.com/dhoppe/puppet)
-[![Puppet Forge](https://img.shields.io/puppetforge/mc/dhoppe.svg)](https://forge.puppetlabs.com/dhoppe)
-[![Puppet Forge](https://img.shields.io/puppetforge/rc/dhoppe.svg)](https://forge.puppetlabs.com/dhoppe)
+[![Puppet Forge - downloads](https://img.shields.io/puppetforge/dt/dhoppe/puppet.svg)](https://forge.puppetlabs.com/dhoppe/puppet)
+[![Puppet Forge - endorsement](https://img.shields.io/puppetforge/e/dhoppe/puppet.svg)](https://forge.puppetlabs.com/dhoppe/puppet)
+[![Puppet Forge - scores](https://img.shields.io/puppetforge/f/dhoppe/puppet.svg)](https://forge.puppetlabs.com/dhoppe/puppet)
 
 #### Table of Contents
 
