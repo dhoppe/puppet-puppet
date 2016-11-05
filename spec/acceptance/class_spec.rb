@@ -7,15 +7,15 @@ when 'Debian'
   service_name     = 'puppet'
 end
 
-describe 'puppet', :if => SUPPORTED_PLATFORMS.include?(fact('osfamily')) do
+describe 'puppet', if: SUPPORTED_PLATFORMS.include?(fact('osfamily')) do
   it 'is_expected.to work with no errors' do
     pp = <<-EOS
       class { 'puppet': }
     EOS
 
-    apply_manifest(pp, :catch_failures => true)
+    apply_manifest(pp, catch_failures: true)
     # apply_manifest(pp, :catch_changes => true)
-    apply_manifest(pp, :expect_changes => true)
+    apply_manifest(pp, expect_changes: true)
   end
 
   describe 'puppet::install' do
@@ -25,7 +25,7 @@ describe 'puppet', :if => SUPPORTED_PLATFORMS.include?(fact('osfamily')) do
           class { 'puppet': }
         EOS
 
-        apply_manifest(pp, :catch_failures => true)
+        apply_manifest(pp, catch_failures: true)
       end
 
       describe package(package_name) do
@@ -41,7 +41,7 @@ describe 'puppet', :if => SUPPORTED_PLATFORMS.include?(fact('osfamily')) do
           }
         EOS
 
-        apply_manifest(pp, :catch_failures => true)
+        apply_manifest(pp, catch_failures: true)
       end
 
       describe package(package_name) do
@@ -59,7 +59,7 @@ describe 'puppet', :if => SUPPORTED_PLATFORMS.include?(fact('osfamily')) do
           }
         EOS
 
-        apply_manifest(pp, :catch_failures => true)
+        apply_manifest(pp, catch_failures: true)
       end
 
       describe package(package_name) do
@@ -84,7 +84,7 @@ describe 'puppet', :if => SUPPORTED_PLATFORMS.include?(fact('osfamily')) do
           }
         EOS
 
-        apply_manifest(pp, :expect_failures => true)
+        apply_manifest(pp, expect_failures: true)
       end
 
       describe package(package_name) do
@@ -107,7 +107,7 @@ describe 'puppet', :if => SUPPORTED_PLATFORMS.include?(fact('osfamily')) do
           class { 'puppet': }
         EOS
 
-        apply_manifest(pp, :catch_failures => true)
+        apply_manifest(pp, catch_failures: true)
       end
 
       describe file(config_file_path) do
@@ -123,7 +123,7 @@ describe 'puppet', :if => SUPPORTED_PLATFORMS.include?(fact('osfamily')) do
           }
         EOS
 
-        apply_manifest(pp, :catch_failures => true)
+        apply_manifest(pp, catch_failures: true)
       end
 
       describe file(config_file_path) do
@@ -145,7 +145,7 @@ describe 'puppet', :if => SUPPORTED_PLATFORMS.include?(fact('osfamily')) do
           }
         EOS
 
-        apply_manifest(pp, :catch_failures => true)
+        apply_manifest(pp, catch_failures: true)
       end
 
       describe file('/etc/default/puppet') do
@@ -162,7 +162,7 @@ describe 'puppet', :if => SUPPORTED_PLATFORMS.include?(fact('osfamily')) do
           class { 'puppet': }
         EOS
 
-        apply_manifest(pp, :catch_failures => true)
+        apply_manifest(pp, catch_failures: true)
       end
 
       describe service(service_name) do
@@ -179,7 +179,7 @@ describe 'puppet', :if => SUPPORTED_PLATFORMS.include?(fact('osfamily')) do
           }
         EOS
 
-        apply_manifest(pp, :catch_failures => true)
+        apply_manifest(pp, catch_failures: true)
       end
 
       describe service(service_name) do
